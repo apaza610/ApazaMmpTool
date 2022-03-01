@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="170.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.apaza.apazammptool.TabMmps">
+   <children>
+      <VBox maxHeight="170.0" maxWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox prefWidth="200.0">
+               <children>
+                  <Label text="&lt;a href=" />
+                  <TextField fx:id="tfHref" onKeyReleased="#onKeyReleased" prefWidth="200.0" promptText="http://192.168.1.12/apz" />
+                  <Button fx:id="btTiempo" onAction="#onTimeConversion" text="_t=">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField fx:id="tfTiempo" maxWidth="54.0" promptText="0:0:10" />
+                  <Label fx:id="lbTipoMedia" text="v=">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="tfNroVideo" maxWidth="40.0" promptText="1" />
+                  <Label text="&gt;" />
+                  <TextField fx:id="tfLinkText" maxWidth="110.0" onKeyReleased="#onKeyLinkReleased" promptText="link" />
+                  <Label text="&lt;/a&gt;" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <RadioButton fx:id="rbTipoVideo" mnemonicParsing="false" onAction="#onTipoMediaSelected" selected="true" text="Video">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grpMedia" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbTipoPdf" mnemonicParsing="false" onAction="#onTipoMediaSelected" text="Pdf">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grpMedia" />
+                     </toggleGroup>
+                  </RadioButton>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="taSalida" prefHeight="24.0" />
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button onAction="#onSouji" text="_souji" textFill="RED" />
+                  <Button onAction="#onExecute" text="e_xecute" />
+                  <Button onAction="#onClipboard" text="_clipboard" textFill="BLUE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
