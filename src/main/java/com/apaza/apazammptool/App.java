@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,8 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ScnApp.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 200);
         stage.setTitle("ApzTool");
+        Image icono = new Image(getClass().getResourceAsStream("/imgs/icon.png"));
+        stage.getIcons().add(icono);
 
         FXTrayIcon tricon = new FXTrayIcon(stage, getClass().getResource("/imgs/icon.png"));
         tricon.setTrayIconTooltip("tool for mindmaps & anki");
