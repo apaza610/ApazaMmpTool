@@ -13,4 +13,9 @@
       <module name="ApazaMmpTool" target="17" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApazaMmpTool" options="--add-exports java.datatransfer/java.awt=com.apaza.apazammptool" />
+    </option>
+  </component>
 </project>

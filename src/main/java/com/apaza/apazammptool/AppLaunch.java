@@ -1,7 +1,7 @@
 package com.apaza.apazammptool;
 
-public class Lanzador {
+public class AppLaunch {
     public static void main(String[] args) {
-        HelloApplication.main(args);
+        App.main(args);
     }
 }

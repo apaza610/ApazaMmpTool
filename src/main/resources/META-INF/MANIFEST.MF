@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.apaza.apazammptool.Lanzador
+Main-Class: com.apaza.apazammptool.AppLaunch
 

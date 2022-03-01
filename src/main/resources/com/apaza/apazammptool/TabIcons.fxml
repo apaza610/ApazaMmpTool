@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="170.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.apaza.apazammptool.TabIcons">
+   <children>
+      <VBox prefHeight="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <RadioButton fx:id="rbWeb" mnemonicParsing="false" onAction="#cambioTipoApp" selected="true" text="Web">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grpTipoApp" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rbAnki" mnemonicParsing="false" onAction="#cambioTipoApp" text="Anki" toggleGroup="$grpTipoApp" />
+                        <Button onAction="#getIconName" text="_icon名前" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lbImgSrc" text="&lt;img src=&quot;/apz/0assets/icons/apz/" />
+                        <TextField fx:id="tfImgName" alignment="CENTER" maxWidth="120.0" onKeyReleased="#onKeyReleased" promptText="dcc_blender" />
+                        <Label text=".svg class=&quot;icono&quot;&gt;" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="&lt;span class=" />
+                  <Spinner fx:id="spClase">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="codigo" />
+                           <String fx:value="apazammp" />
+                           <String fx:value="" />
+                        </FXCollections>
+                     </items>
+                  </Spinner>
+                  <Label text="style=">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Spinner fx:id="spColor">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="red" />
+                           <String fx:value="yellow" />
+                           <String fx:value="#0CAFFF" />
+                           <String fx:value="gray" />
+                           <String fx:value="" />
+                        </FXCollections>
+                     </items>
+                  </Spinner>
+                  <Label text="&gt;" />
+                  <TextField fx:id="tfGlifo" maxWidth="60.0" onKeyReleased="#onKeyReleased" promptText="C">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label text="&lt;/span&gt;">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="taSalida" prefHeight="24.0" />
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button onAction="#onSouji" text="_souji" textFill="RED" />
+                  <Button onAction="#onExecute" text="e_xecute" />
+                  <Button onAction="#onClipboard" text="_clipboard" textFill="BLUE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

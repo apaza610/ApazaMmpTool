@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ApazaMmpTool.iml" filepath="$PROJECT_DIR$/ApazaMmpTool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ApazaMmpTool.iml" filepath="$PROJECT_DIR$/../ApazaMmpTool.iml" />
     </modules>
   </component>
 </project>

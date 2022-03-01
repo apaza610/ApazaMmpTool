@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="170.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.apaza.apazammptool.TabPaths">
+   <children>
+      <VBox AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="PathEntrada" />
+                  <TextField fx:id="tfEntrada" alignment="CENTER_RIGHT" onKeyReleased="#onKeyReleased" promptText="http://192.168.1.12/apz/maps" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <GridPane alignment="CENTER" maxWidth="-Infinity" prefWidth="400.0" VBox.vgrow="NEVER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="windows" />
+                  <Label text="gnu/linux" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="rbWinHttp" mnemonicParsing="false" text="E: → http" GridPane.columnIndex="1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grpOS" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbHttpWin" mnemonicParsing="false" text="http: → E:" toggleGroup="$grpOS" GridPane.columnIndex="2" />
+                  <RadioButton fx:id="rbGnuHttp" mnemonicParsing="false" text="/mnt → http:" toggleGroup="$grpOS" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="rbHttpGnu" mnemonicParsing="false" text="http: → /mnt" toggleGroup="$grpOS" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <TextArea fx:id="taSalida" prefHeight="24.0" />
+            <HBox alignment="TOP_RIGHT">
+               <children>
+                  <Button onAction="#onSouji" text="_souji" textFill="RED" />
+                  <Button onAction="#onExecute" text="e_xecute" />
+                  <Button onAction="#onClipboard" text="_clipboard" textFill="BLUE" />
+                  <Button onAction="#onGoto" text="_goto" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
