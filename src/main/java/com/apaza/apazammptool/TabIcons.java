@@ -33,10 +33,6 @@ public class TabIcons {
         spClase.getValueFactory().setValue("");
         spColor.getValueFactory().setValue("");
     }
-    @FXML    void getIconName(ActionEvent event) throws IOException, URISyntaxException {
-        URI uri = new URI("http://192.168.1.12/apz/0assets/icons/");
-        java.awt.Desktop.getDesktop().browse(uri);
-    }
     @FXML    void onExecute() {
         if( !tfImgName.getText().isEmpty() ){
             String raiz = rbAnki.isSelected()? "" : "/";

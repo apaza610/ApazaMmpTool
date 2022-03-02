@@ -27,7 +27,6 @@
                               <ToggleGroup fx:id="grpTipoApp" />
                            </toggleGroup></RadioButton>
                         <RadioButton fx:id="rbAnki" mnemonicParsing="false" onAction="#cambioTipoApp" text="Anki" toggleGroup="$grpTipoApp" />
-                        <Button onAction="#getIconName" text="_icon名前" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
