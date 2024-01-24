@@ -10,13 +10,19 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class App extends Application {
+    static String cadenaApaza = "0 0";
+    static String cadenaMath = "1 2";
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ScnApp.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 200);
+        scene.getStylesheets().add(getClass().getResource("extilo.css").toExternalForm());
         stage.setTitle("ApzTool");
         Image icono = new Image(getClass().getResourceAsStream("/imgs/icon.png"));
         stage.getIcons().add(icono);
@@ -42,7 +48,15 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        File apzTxt = new File("src/main/resources/glifos.txt");
+        Scanner apzScan = new Scanner(apzTxt);
+        cadenaApaza = apzScan.nextLine();
+        cadenaMath = apzScan.nextLine();
+
+        System.out.println(cadenaApaza);
+        System.out.println(cadenaMath);
+
         launch();
     }
 }

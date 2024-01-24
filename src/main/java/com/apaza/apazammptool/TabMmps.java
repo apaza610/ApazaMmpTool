@@ -19,6 +19,8 @@ public class TabMmps {
     @FXML    private ToggleGroup grpMedia;
     @FXML    private RadioButton rbTipoPdf;
     @FXML    private RadioButton rbTipoVideo;
+    @FXML    private RadioButton rbTipoVideoExp;
+    @FXML    private RadioButton rbTipoLink;
     @FXML    private TextArea taSalida;
     @FXML    private TextField tfHref;
     @FXML    private TextField tfLinkText;
@@ -38,26 +40,21 @@ public class TabMmps {
     }
     @FXML    void onExecute() {
         cadena[1] = tfHref.getText();  cadena[7] = tfLinkText.getText();
-        if( rbTipoVideo.isSelected() ){
-            if(tfNroVideo.getText().isEmpty())  cadena[4] = cadena[5] = "";
-            else cadena[5] = tfNroVideo.getText();
-
-            if( tfTiempo.getText().isEmpty() )  cadena[2] = cadena[3] = "";
-            else{
-                if( tfNroVideo.getText().isEmpty() )    cadena[2] = "#t=";
-                else{
-                    cadena[2] = "?t=";
-                    cadena[4] = "&v=";
-                    cadena[5] = tfNroVideo.getText();
-                }
-                cadena[3] = tfTiempo.getText();
-            }
-        }else if( rbTipoPdf.isSelected() ){
+        if( rbTipoLink.isSelected() ){
             cadena[2] = cadena[3] = cadena[4] = cadena[5] = "";
-            if( !tfNroVideo.getText().isEmpty() ){
-                cadena[4] = "#page=";
-                cadena[5] = tfNroVideo.getText();
-            }
+        } else if( rbTipoVideo.isSelected() ){
+            cadena[4] = cadena[5] = "";
+            cadena[2] = "#t=";
+            cadena[3] = tfTiempo.getText();
+        } else if (rbTipoVideoExp.isSelected()) {
+            cadena[2] = "?t=";
+            cadena[3] = tfTiempo.getText();
+            cadena[4] = "&v=";
+            cadena[5] = tfNroVideo.getText();
+        } else if( rbTipoPdf.isSelected() ){
+            cadena[2] = cadena[3] = cadena[4] = cadena[5] = "";
+            cadena[4] = "#page=";
+            cadena[5] = tfNroVideo.getText();
         }
         taSalida.setText(String.join("",cadena));
     }
@@ -67,21 +64,30 @@ public class TabMmps {
     @FXML    void onKeyReleased() {
         if( tfHref.getText().endsWith("pdf") ){
             rbTipoPdf.setSelected(true);
-        }else if(tfHref.getText().endsWith("mp4")){
-            rbTipoVideo.setSelected(true);
-        }else if(tfHref.getText().endsWith("/")){
+        }else if(tfHref.getText().endsWith("mp4") || tfHref.getText().endsWith("/")){
             rbTipoVideo.setSelected(true);
         }
         onTipoMediaSelected();
     }
     @FXML    void onTipoMediaSelected() {
-        if( rbTipoPdf.isSelected() ){
+        if( rbTipoLink.isSelected() ){
+            lbTipoMedia.setVisible(false);
+            btTiempo.setVisible(false);
+            tfTiempo.setVisible(false);
+            tfNroVideo.setVisible(false);
+        }
+        else if( rbTipoPdf.isSelected() ){
             lbTipoMedia.setText("page=");
             btTiempo.setVisible(false);
             tfTiempo.setVisible(false);
         }else if( rbTipoVideo.isSelected() ){
             lbTipoMedia.setText("v=");
             btTiempo.setVisible(true);
+            tfTiempo.setVisible(true);
+        } else if ( rbTipoVideoExp.isSelected() ) {
+            lbTipoMedia.setVisible(true);
+            btTiempo.setVisible(true);
+            tfNroVideo.setVisible(true);
             tfTiempo.setVisible(true);
         }
     }

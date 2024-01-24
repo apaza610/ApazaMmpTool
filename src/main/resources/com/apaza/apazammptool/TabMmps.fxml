@@ -19,18 +19,18 @@
                <children>
                   <Label text="&lt;a href=" />
                   <TextField fx:id="tfHref" onKeyReleased="#onKeyReleased" prefWidth="200.0" promptText="http://192.168.1.12/apz" />
-                  <Button fx:id="btTiempo" onAction="#onTimeConversion" text="_t=">
+                  <Button fx:id="btTiempo" onAction="#onTimeConversion" text="_t=" visible="false">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <TextField fx:id="tfTiempo" maxWidth="54.0" promptText="0:0:10" />
-                  <Label fx:id="lbTipoMedia" text="v=">
+                  <TextField fx:id="tfTiempo" maxWidth="54.0" promptText="0:0:10" visible="false" />
+                  <Label fx:id="lbTipoMedia" text="v=" visible="false">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="tfNroVideo" maxWidth="40.0" promptText="1" />
+                  <TextField fx:id="tfNroVideo" maxWidth="40.0" promptText="1" visible="false" />
                   <Label text="&gt;" />
                   <TextField fx:id="tfLinkText" maxWidth="110.0" onKeyReleased="#onKeyLinkReleased" promptText="link" />
                   <Label text="&lt;/a&gt;" />
@@ -40,21 +40,19 @@
                </VBox.margin>
             </HBox>
             <HBox>
-               <children>
-                  <RadioButton fx:id="rbTipoVideo" mnemonicParsing="false" onAction="#onTipoMediaSelected" selected="true" text="Video">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grpMedia" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="rbTipoPdf" mnemonicParsing="false" onAction="#onTipoMediaSelected" text="Pdf">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grpMedia" />
-                     </toggleGroup>
-                  </RadioButton>
-               </children>
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
+               <children>
+                  <RadioButton fx:id="rbTipoLink" mnemonicParsing="false" onAction="#onTipoMediaSelected" selected="true" text="Link">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grupomedia" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbTipoVideo" mnemonicParsing="false" onAction="#onTipoMediaSelected" text="VideoSolo" toggleGroup="$grupomedia" />
+                  <RadioButton fx:id="rbTipoVideoExp" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" onAction="#onTipoMediaSelected" text="VideoExplicado" toggleGroup="$grupomedia" />
+                  <RadioButton fx:id="rbTipoPdf" mnemonicParsing="false" onAction="#onTipoMediaSelected" text="Pdf" toggleGroup="$grupomedia" />
+               </children>
             </HBox>
             <TextArea fx:id="taSalida" prefHeight="24.0" />
             <HBox alignment="CENTER_RIGHT">
