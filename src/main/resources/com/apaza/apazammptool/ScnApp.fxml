@@ -34,7 +34,7 @@
                               <HBox>
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#goToHome" text="🏠" />
-                                    <TextField fx:id="tfURLpath" prefWidth="300.0" text="http://192.168.1.12/apz/0assets/icons/" />
+                                    <TextField fx:id="tfURLpath" prefWidth="300.0" text="http://localhost/apz/0assets/icons/" />
                                     <Button mnemonicParsing="false" onAction="#goToWebsite" text="goto" />
                                  </children>
                               </HBox>
